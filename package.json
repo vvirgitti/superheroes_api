@@ -1,0 +1,22 @@
+{
+  "name": "superheroes",
+  "version": "1.0.0",
+  "description": "Super Heroes API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "VVI",
+  "license": "ISC",
+  "dependencies": {
+    "MD5": "^1.2.2",
+    "body-parser": "^1.13.1",
+    "browserify": "^10.2.4",
+    "ejs": "^2.3.2",
+    "express": "^4.13.0",
+    "koa": "^0.21.0",
+    "mongoose": "^4.0.6",
+    "requirejs": "^2.1.18"
+  }
+}

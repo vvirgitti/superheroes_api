@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Superhero API</title>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
+  <script src="js/api_keys.js"></script>
+</head>
+<body>
+
+  <h1> Choose your favourite Superhero! </h1>
+
+
+  <script>
+    var hash = timestamp+private_key+public_key;
+    var md5 = CryptoJS.MD5(hash).toString();
+  </script>
+
+
+  <script>
+    var urlBasic = "http://gateway.marvel.com/v1/public/characters?ts="
+    var apiKeyvalue = "&apikey="
+    var hashKeyvalue = "&hash="
+    var url = urlBasic + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
+
+    console.log(url);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, false);
+    xhr.send();
+
+    // var heroesList = JSON.parse(xhr);
+
+    console.log(xhr.status);
+    console.log(xhr.statusText);
+    console.log(xhr.data);
+    // console.log(heroesList);
+  </script>
+
+</body>
