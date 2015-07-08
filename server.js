@@ -17,7 +17,8 @@ app.get('/', function(req, res){
 
 var port = process.env.PORT || 3000;
 
-var router = express.Router();
+// var router = express.Router();
+var router = module.exports = require('express').Router();
 
 router.use(function(req, res, next){
   console.log("Testing middleware");

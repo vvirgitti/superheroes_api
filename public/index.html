@@ -3,6 +3,7 @@
 <head>
   <title>Superhero API</title>
   <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/api_keys.js"></script>
 </head>
 <body>
@@ -24,17 +25,40 @@
 
     console.log(url);
 
-    var xhr = new XMLHttpRequest();
+    $(document).ready(function() {
+      // $.ajax({
+      //   url: url,
+      //   dataType: "json"
+      // }).done(function(nameList) {
+      //   $.each(nameList.name, function(index, name) {
+      //     $('.names').append(
+      //       $('<option></option>').val(name).html(names));
+      //   });
+      // });
 
-    xhr.open("GET", url, false);
-    xhr.send();
+      var jqxhr = $.getJSON(url, function(){
+        console.log("success");
+      })
+        .done(function(){
+          
+          console.log("second success");
+        })
+        .fail(function(){
+          console.log("error");
+        })
+        .always(function(){
+          console.log("complete");
+        });
+        jqxhr.complete(function(){
+          console.log("second complete");
+        });
 
-    // var heroesList = JSON.parse(xhr);
-
-    console.log(xhr.status);
-    console.log(xhr.statusText);
-    console.log(xhr.data);
-    // console.log(heroesList);
+      });
   </script>
 
+  <select class="names"></select>
+
+
 </body>
+
+</html>

@@ -4,7 +4,7 @@
   "description": "Super Heroes API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/mocha/bin/mocha tests/spec/server.spec.js",
     "start": "node server.js"
   },
   "author": "VVI",
@@ -16,7 +16,10 @@
     "ejs": "^2.3.2",
     "express": "^4.13.0",
     "koa": "^0.21.0",
+    "mocha": "^2.2.5",
     "mongoose": "^4.0.6",
-    "requirejs": "^2.1.18"
+    "requirejs": "^2.1.18",
+    "should": "^7.0.1",
+    "supertest": "^1.0.1"
   }
 }
