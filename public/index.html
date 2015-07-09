@@ -9,43 +9,46 @@
 </head>
 <body>
 
-  <h1> Choose your favourite Superhero! </h1>
-
-  <!-- <form>
-    Superhero
-    <input type="text" name="superheroName">
-    <input type="submit" value="Search">
-  </form> -->
+  <h1> What's your favourite Marvel Superhero? </h1>
 
   <script>
     var hash = timestamp+private_key+public_key;
     var md5 = CryptoJS.MD5(hash).toString();
-  </script>
-
-
-  <script>
-    var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&ts="
+    var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
+    var timeStampvalue = "&ts="
     var apiKeyvalue = "&apikey="
     var hashKeyvalue = "&hash="
-    var url = urlBasic + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
+    var superheroName;
+    var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
 
-    console.log(url);
+
 
     $(document).ready(function() {
-      $("button").click(function(event){
+      $("#submit").click(function(){
+        superheroName = $("#superheroName").val();
+        $.post("http://localhost:3000/superhero", {superheroName:superheroName}, function(data){
+          if(data === 'done')
+          {
+            alert("posting success");
+          }
+        });
         $.getJSON(url, function(jd) {
           $.each(jd.data.results, function(index, value){
             $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
+            console.log(url);
           });
          });
        });
      });
-
   </script>
 
-  <button> Click here </button>
+    Search for your Superhero
+    <input type="text" id="superheroName">
+    <input type="button" id="submit" value="Search">
 
-  <div class="listSuperhero"></div>
+  <!-- <button> Click here </button> -->
+
+  <div></div>
 
 
 </body>
