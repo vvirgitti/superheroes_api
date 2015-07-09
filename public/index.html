@@ -12,14 +12,14 @@
   <h1> What's your favourite Marvel Superhero? </h1>
 
   <script>
-    var hash = timestamp+private_key+public_key;
-    var md5 = CryptoJS.MD5(hash).toString();
-    var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
-    var timeStampvalue = "&ts="
-    var apiKeyvalue = "&apikey="
-    var hashKeyvalue = "&hash="
-    var superheroName;
-    var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
+    // var hash = timestamp+private_key+public_key;
+    // var md5 = CryptoJS.MD5(hash).toString();
+    // var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
+    // var timeStampvalue = "&ts="
+    // var apiKeyvalue = "&apikey="
+    // var hashKeyvalue = "&hash="
+    // var superheroName;
+    // var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
 
 
 
@@ -32,12 +32,9 @@
             alert("posting success");
           }
         });
-        $.getJSON(url, function(jd) {
-          $.each(jd.data.results, function(index, value){
-            $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
-            console.log(url);
-          });
-         });
+        var heroName = JSON.stringify(superheroName);
+        localStorage.setItem('data', heroName);
+        console.log(heroName);
        });
      });
   </script>
