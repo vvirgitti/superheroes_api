@@ -16,12 +16,11 @@
         $.post("http://localhost:3000/superhero", {superheroName:superheroName}, function(data){
           window.location = 'http://localhost:3000/superhero.html';
           });
+          var heroName;
+          localStorage.setItem('heroName', JSON.stringify(superheroName));
         });
-        var heroName;
-        localStorage.setItem('heroName', JSON.stringify(superheroName));
        });
   </script>
-
 
       Select your Superhero
       <input type="text" id="superheroName">
