@@ -4,38 +4,37 @@
   <title>Superhero API</title>
   <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <!-- // <script src="../js/api_key.js"></script>
-  // <script src="../js/api_calls.js"></script> -->
-  <link rel="stylesheet" href="./styling/styling.css">
+  <script type="text/javascript" src="./js/api_keys.js"></script>
+  <link rel="stylesheet" href="./css/styling.css">
 </head>
 <body>
 
   <script>
-    // var hash = timestamp+private_key+public_key;
-    // var md5 = CryptoJS.MD5(hash).toString();
-    // var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
-    // var timeStampvalue = "&ts="
-    // var apiKeyvalue = "&apikey="
-    // var hashKeyvalue = "&hash="
-    // var superheroName;
-    // var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
+    var hash = timestamp+private_key+public_key;
+    var md5 = CryptoJS.MD5(hash).toString();
+    var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
+    var timeStampvalue = "&ts="
+    var apiKeyvalue = "&apikey="
+    var hashKeyvalue = "&hash="
+    var superheroName;
+    var superheroName = localStorage.getItem('heroName');
+    console.log(superheroName);
 
-    var retrieveName = localStorage.getItem('heroName');
-    console.log(retrieveName);
+    var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5;
 
-    // $(document).ready(function() {
-    //
-    //   $.getJSON(url, function(jd) {
-    //     $.each(jd.data.results, function(index, value){
-    //       $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
-    //       console.log(url);
-    //     });
-    //   });
-    // });
+    $(document).ready(function() {
+
+      $.getJSON(url, function(jd) {
+        $.each(jd.data.results, function(index, value){
+          $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
+          console.log(url);
+        });
+      });
+    });
 
   </script>
 
-  <h1> Welcome! </h1>
+  <h1> You chose </h1>
 
   <div> </div>
 

@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require("path");
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/views'));
