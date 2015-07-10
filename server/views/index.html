@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Superhero API</title>
-  <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
+  <title>Marvel Superhero Rock Paper Scissors</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/api_keys.js"></script>
   <link rel="stylesheet" href="./styling/styling.css">
 </head>
 <body>
@@ -12,41 +10,24 @@
   <h1> What's your favourite Marvel Superhero? </h1>
 
   <script>
-    // var hash = timestamp+private_key+public_key;
-    // var md5 = CryptoJS.MD5(hash).toString();
-    // var urlBasic = "http://gateway.marvel.com/v1/public/characters?limit=99&name="
-    // var timeStampvalue = "&ts="
-    // var apiKeyvalue = "&apikey="
-    // var hashKeyvalue = "&hash="
-    // var superheroName;
-    // var url = urlBasic + superheroName + timeStampvalue + timestamp + apiKeyvalue + public_key + hashKeyvalue + md5
-
-
-
     $(document).ready(function() {
       $("#submit").click(function(){
         superheroName = $("#superheroName").val();
         $.post("http://localhost:3000/superhero", {superheroName:superheroName}, function(data){
-          if(data === 'done')
-          {
-            alert("posting success");
-          }
+          $('.list').html(data);
+          });
         });
-        var heroName = JSON.stringify(superheroName);
-        localStorage.setItem('data', heroName);
-        console.log(heroName);
+        var heroName;
+        localStorage.setItem('heroName', JSON.stringify(superheroName));
        });
-     });
   </script>
 
-    Search for your Superhero
-    <input type="text" id="superheroName">
-    <input type="button" id="submit" value="Search">
 
-  <!-- <button> Click here </button> -->
+      Select your Superhero
+      <input type="text" id="superheroName">
+      <input type="button" id="submit" value="Search">
 
-  <div></div>
-
+  <div class="list"></div>
 
 </body>
 
