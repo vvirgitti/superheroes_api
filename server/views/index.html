@@ -14,7 +14,7 @@
       $("#submit").click(function(){
         superheroName = $("#superheroName").val();
         $.post("http://localhost:3000/superhero", {superheroName:superheroName}, function(data){
-          $('.list').html(data);
+          window.location = 'http://localhost:3000/superhero.html';
           });
         });
         var heroName;
