@@ -26,21 +26,17 @@
     console.log(url);
 
     $(document).ready(function() {
-      $("button").click(function(event){
       $.getJSON(url, function(jd) {
         $.each(jd.data.results, function(index, value){
           $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
           console.log(url);
           });
         });
-      });
     });
 
   </script>
 
-  <h1> You chose </h1>
-
-  <button> Click here </button>
+  <h1> Your character </h1>
 
   <div> </div>
 
