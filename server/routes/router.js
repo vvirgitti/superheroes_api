@@ -1,5 +1,8 @@
 'use strict';
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://DrStrange:MarvelRocks@ds053312.mongolab.com:53312/superheroes')
+var Superhero = require('../app/models/superhero');
 var router = module.exports = require('express').Router();
 
 router.use(function(req, res, next){
