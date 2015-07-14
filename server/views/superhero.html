@@ -28,11 +28,13 @@
     $(document).ready(function() {
       $.getJSON(url, function(jd) {
         if (jd.data.count === 0) {
-          $("div").append("<p>This character is not available - please choose another one</p><a href='http://localhost:3000'>Choose another character</a>");
+          $("#Character").append("<p>This character is not available - please choose another one</p><a href='http://localhost:3000'>Choose another character</a>");
           console.log("raise error");
+          $("#Weapon").hide();
         } else {
         $.each(jd.data.results, function(index, value){
           $("div").append('<img src= ' + jd.data.results[index].thumbnail.path + '.' + jd.data.results[index].thumbnail.extension +'>');
+          $("#Weapon").show();
           });
           console.log(url);
           console.log(jd.data.count);
@@ -44,13 +46,15 @@
 
   <h1> Your character </h1>
 
-  <div> </div>
+  <div id="Character"> </div>
 
-  <h2> Choose your weapon </h2>
+  <div id="Weapon">
+    <h2> Choose your weapon </h2>
 
-  <h3> Rock </h3>
-  <h3> Paper </h3>
-  <h3> Scissors </h3>
+    <h3 class="rock"> Rock </h3>
+    <h3 class="paper"> Paper </h3>
+    <h3 class="scissors"> Scissors </h3>
+  </div>
 
 </body>
 </html>
