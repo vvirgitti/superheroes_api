@@ -5,10 +5,10 @@ describe("Player", function() {
 
   beforeEach(function() {
     player = new Player(name);
-    jasmine.addMatchers(matchers);
   });
 
   it("should have a name", function() {
-    expect($('<input type="text" id="superheroName">')).toHaveId('superheroName');
+    var newPlayer = new Player("Robert");
+    expect(newPlayer.playerName).toEqual("Robert");
   });
 });
