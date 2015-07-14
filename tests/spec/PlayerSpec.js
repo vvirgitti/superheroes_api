@@ -1,5 +1,3 @@
-var matchers = window['jasmine-jquery-matchers'];
-
 describe("Player", function() {
   var player;
 
@@ -8,7 +6,12 @@ describe("Player", function() {
   });
 
   it("should have a name", function() {
-    var newPlayer = new Player("Robert");
-    expect(newPlayer.playerName).toEqual("Robert");
+    player.chooseName("Robert");
+    expect(player.name).toEqual("Robert");
+  });
+
+  it("should have a weapon", function(){
+    player.chooseWeapon("Rock");
+    expect(player.weapon).toEqual("Rock");
   });
 });
