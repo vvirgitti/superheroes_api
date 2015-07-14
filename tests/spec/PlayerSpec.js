@@ -6,8 +6,8 @@ describe("Player", function() {
   });
 
   it("should have a name", function() {
-    player.chooseName("Robert");
-    expect(player.name).toEqual("Robert");
+    player.chooseName("Hulk");
+    expect(player.name).toEqual("Hulk");
   });
 
   it("should have a weapon", function(){
